@@ -189,6 +189,7 @@ namespace BackupMoreFiles
 				// FIXME: Do not block GUI thread
 				if (CompareFiles(source_file_path, dest_file_path)) {
 					write(String.Format("There was no change to {0} since the last backup.", file_name));
+					write("Done.");
 					return;
 				}
 				string first_path = dest_file_path+".1st";
@@ -211,6 +212,7 @@ namespace BackupMoreFiles
 					write("Copying new file, please wait...");
 					File.Copy(source_file_path, dest_file_path);
 					write("The backup operation finished successfully.");
+					write("Done.");
 					goButton.Enabled=true;
 				}
 				catch (Exception exn) {
